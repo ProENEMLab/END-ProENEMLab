@@ -11,14 +11,47 @@ O ProENEM Lab é um projeto escolar de uma plataforma de estudos para o ENEM. A 
 
 ## Funcionalidades
 
-- Cadastro e login de usuários.
-- Busca de questões por ano, matéria, tópico, idioma e dificuldade.
-- Registro das respostas e estatísticas de acerto.
-- Trilha de tópicos, anotações e revisão de questões erradas.
-- Calendário de estudos e Pomodoro, com períodos de foco e descanso.
-- Metas diárias, pontos e contagem de dias seguidos de estudo.
-- Relatórios de estudo e exportação em PDF.
-- Notificações, com envio externo dependente de configuração.
+O resumo abaixo segue a ordem dos 20 requisitos e descreve o funcionamento atual, incluindo as partes que ainda dependem de dados ou configuração.
+
+1. **Cadastro e acesso:** cadastro e login por e-mail e senha, com senha protegida por hash e autenticação por token. A recuperação de senha é uma simulação local, sem envio de e-mail. O login por redes sociais ainda não está implementado.
+
+2. **Dashboard principal:** apresenta o próximo tópico da trilha, a meta do dia e a sequência atual de dias de estudo (streak).
+
+3. **Roadmap linear:** organiza os tópicos em uma sequência e acompanha o progresso individual do aluno. A ordem pode usar a incidência dos conteúdos e os pré-requisitos cadastrados; a sequência não é gerada individualmente para cada usuário.
+
+4. **Anotações por tópico:** permite criar, consultar, editar e excluir anotações vinculadas diretamente aos tópicos da trilha, sem organizar pastas ou tags.
+
+5. **Correção de questões:** apresenta a resposta correta após o envio e exibe explicação em texto, imagem ou vídeo quando disponível. As questões importadas podem trazer apenas a referência ao gabarito oficial, sem comentário pedagógico detalhado.
+
+6. **Banco de questões:** permite importar provas pela enem-api e buscar questões por ano, matéria, tópico, idioma e dificuldade. A cobertura depende das edições disponíveis na fonte e já importadas; o projeto não vem com todas as provas desde 2009.
+
+7. **Estatísticas de desempenho:** mostra percentuais de acerto por tópico e matéria, os três tópicos com pior rendimento e a distribuição dos erros. O aluno pode classificar respostas erradas como falta de conceito ou erro de atenção.
+
+8. **Pomodoro integrado:** oferece períodos de foco e descanso ligados às disciplinas e aos blocos do calendário semanal, com registro das sessões de estudo.
+
+9. **Dificuldade das questões:** apresenta os níveis fácil, médio e difícil. A classificação usa parâmetros de dificuldade do INEP quando importados e vinculados, ou estatísticas da própria plataforma quando há dados suficientes. Sem esses dados, a questão fica sem classificação.
+
+10. **Avanço de dificuldade:** libera o próximo nível por tópico ao atingir pelo menos 80% de acertos na janela de avaliação. Por padrão, considera até dez primeiras respostas a questões distintas do nível e exige dez questões, ou a quantidade disponível quando menor.
+
+11. **Sequência de estudos:** acompanha o streak atual e o maior streak registrado. Medalhas por conquistas e rankings mensais entre usuários ainda não estão implementados.
+
+12. **Pontos por atividade:** registra +5 pontos por questão respondida, +10 por Pomodoro concluído, +15 por meta concluída e +20 a cada marco de sete dias consecutivos de estudo.
+
+13. **Metas diárias:** permite cadastrar uma descrição e uma data, marcar a conclusão e excluir metas. O aluno pode escrever metas específicas e mensuráveis, mas o sistema não valida automaticamente os critérios SMART nem mede seu cumprimento pelo texto.
+
+14. **Planejamento semanal:** permite criar, mover e redimensionar blocos de disciplinas arrastando no calendário. Cada bloco pode iniciar seu Pomodoro; o início automático no horário previsto depende da configuração escolhida.
+
+15. **Foco Total:** integra as sessões Pomodoro a uma interface de foco com fundo escuro e opção de tela cheia. A tela cheia depende das permissões e da interação exigida pelo navegador; o site não bloqueia notificações externas do sistema operacional.
+
+16. **Revisão de erros:** programa revisões espaçadas das questões erradas para 1, 3 e 7 dias a partir da data de referência do ciclo, apresenta as revisões pendentes e registra novas respostas. Os avisos externos dependem da configuração de notificações.
+
+17. **Relatório semanal:** compara o desempenho por tópico, indica evolução ou regressão quando há respostas suficientes e apresenta o tempo líquido de estudo registrado nas sessões.
+
+18. **Atualização do roadmap:** gera versões da trilha usando arquivos de referência do edital, mapeamentos de conteúdos e incidência nas cinco edições definidas no catálogo. Há agendamento anual para gerar um rascunho, mas os arquivos e as provas precisam ser atualizados e a nova versão precisa ser ativada pelo responsável.
+
+19. **Exportação em PDF:** reúne anotações por tópico e questões erradas com respostas corretas e explicações disponíveis. A exportação aceita filtros e possui limites configuráveis de quantidade de anotações e questões.
+
+20. **Notificações e lembretes:** permite configurar avisos de metas pendentes, revisões e manutenção do streak por e-mail ou push. O envio exige configuração dos canais, permissão do navegador para push e ativação do agendador para os disparos automáticos.
 
 Os planos Pro e Elite aparecem como propostas futuras. Ainda não há cobrança ou assinatura.
 
