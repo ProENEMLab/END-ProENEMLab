@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tópico · ProENEM Lab</title>
+  <link rel="icon" id="favicon" href="/assets/images/icon-dark.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/motion.css">
+  <link rel="stylesheet" href="/assets/css/pages/app-shell.css">
+  <link rel="stylesheet" href="/assets/css/pages/roadmap.css">
+  <script src="/assets/js/auth-guard.js"></script>
+  <script>document.documentElement.setAttribute("data-theme","dark");</script>
+</head>
+<body>
+  <toast-container></toast-container>
+  <div class="app-shell">
+    <app-navbar></app-navbar>
+    <div class="app-body">
+      <app-sidebar></app-sidebar>
+      <main class="app-content">
+        <div class="app-content-inner">
+          <p class="page-back"><a href="/pages/roadmap/index.html">Voltar ao roadmap</a></p>
+
+          <div id="topic-loading">
+            <div class="card"><div class="skeleton" style="height:200px"></div></div>
+          </div>
+
+          <div id="topic-content" hidden>
+            <header class="page-header">
+              <p class="page-kicker" id="topic-subject"></p>
+              <h1 id="topic-name">Tópico</h1>
+              <p id="topic-description" class="muted"></p>
+              <p id="topic-incidence" class="muted" hidden></p>
+              <p class="muted">Status neste roadmap: <strong id="topic-status"></strong></p>
+            </header>
+
+            <div class="topic-actions">
+              <button type="button" class="btn btn-ghost" id="btn-in-progress">Marcar como em progresso</button>
+              <button type="button" class="btn btn-primary" id="btn-completed">Marcar como concluído</button>
+              <a class="btn btn-navy" id="practice-link" href="/pages/questions/index.html">Praticar questões deste tópico</a>
+              <button type="button" class="btn btn-primary" id="btn-practice-level">Praticar no nível liberado</button>
+            </div>
+
+            <section id="level-tracks" class="level-tracks" aria-label="Trilhas de dificuldade"></section>
+
+            <section class="topic-notes">
+              <div class="page-header-tools">
+                <h2>Anotações</h2>
+                <button type="button" class="btn btn-ghost" data-export-pdf>Exportar PDF</button>
+              </div>
+              <form id="note-form">
+                <div class="field">
+                  <label for="note-content">Nova anotação</label>
+                  <textarea id="note-content" required placeholder="O que você quer lembrar deste tópico?"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar anotação</button>
+              </form>
+              <div id="notes-list" class="stack" style="margin-top:24px"></div>
+            </section>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script type="module" src="/assets/js/motion.js"></script>
+  <script type="module" src="/assets/js/components/toast.js"></script>
+  <script type="module" src="/assets/js/components/app-navbar.js"></script>
+  <script type="module" src="/assets/js/components/app-sidebar.js"></script>
+  <script type="module" src="/assets/js/pages/topic.js"></script>
+</body>
+</html>

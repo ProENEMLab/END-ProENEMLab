@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revisões de hoje · ProENEM Lab</title>
+  <link rel="icon" id="favicon" href="/assets/images/icon-dark.png">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/motion.css">
+  <link rel="stylesheet" href="/assets/css/pages/app-shell.css">
+  <link rel="stylesheet" href="/assets/css/pages/study.css">
+  <script src="/assets/js/auth-guard.js"></script>
+  <script>document.documentElement.setAttribute("data-theme","dark");</script>
+</head>
+<body>
+  <toast-container></toast-container>
+  <div class="app-shell">
+    <app-navbar></app-navbar>
+    <div class="app-body">
+      <app-sidebar></app-sidebar>
+      <main class="app-content">
+        <div class="app-content-inner">
+          <header class="page-header">
+            <p class="page-kicker">Memória</p>
+            <h1>Revisões de hoje</h1>
+            <p>As questões que você errou voltam 1, 3 e 7 dias depois da data do erro. O gabarito só aparece depois da resposta.</p>
+          </header>
+          <p id="reviews-error" class="study-error" role="alert" hidden></p>
+          <p id="reviews-summary" class="muted" hidden></p>
+          <p><a class="btn btn-primary" id="reviews-start" href="/pages/reviews/session.html" hidden>Começar</a></p>
+          <div id="reviews-empty" class="card empty-state" hidden>
+            <p id="reviews-upcoming"></p>
+          </div>
+          <div id="reviews-list" class="stack-cards"></div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script type="module" src="/assets/js/components/toast.js"></script>
+  <script type="module" src="/assets/js/components/app-navbar.js"></script>
+  <script type="module" src="/assets/js/components/app-sidebar.js"></script>
+  <script type="module" src="/assets/js/pages/reviews.js"></script>
+</body>
+</html>

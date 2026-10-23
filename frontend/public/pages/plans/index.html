@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planos · ProENEM Lab</title>
+  <link rel="icon" id="favicon" href="/assets/images/icon-dark.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/motion.css">
+  <link rel="stylesheet" href="/assets/css/pages/landing.css">
+  <link rel="stylesheet" href="/assets/css/pages/auth.css">
+  <link rel="stylesheet" href="/assets/css/pages/dashboard.css">
+  <link rel="stylesheet" href="/assets/css/pages/plans.css">
+  <script>document.documentElement.setAttribute("data-theme","dark");</script>
+</head>
+<body>
+  <toast-container></toast-container>
+  <div class="public-shell">
+    <public-navbar></public-navbar>
+
+    <section class="plans-board">
+      <header class="plans-hero">
+        <p class="landing-kicker">Planos</p>
+        <h1>O gratuito já abre o banco oficial. Pro e Elite entram quando houver cobrança.</h1>
+        <p class="lede">Sem checkout nesta página. Gratuito, Pro e Elite vêm do catálogo da API — o texto muda sem redesenhar o card. Enquanto o preço for 'Em breve', nada é cobrado.</p>
+      </header>
+
+      <div id="plans-loading" class="plans-grid">
+        <div class="plan-card is-now"><div class="skeleton" style="height:220px"></div></div>
+        <div class="plan-card is-soon"><div class="skeleton" style="height:220px"></div></div>
+        <div class="plan-card is-soon"><div class="skeleton" style="height:220px"></div></div>
+      </div>
+      <div id="plans-empty" class="card empty-state" hidden>
+        <h3>Nenhum plano cadastrado</h3>
+        <p>O catálogo ainda não foi publicado.</p>
+      </div>
+      <section id="plans-grid" class="plans-grid" hidden></section>
+    </section>
+
+    <section class="plans-compare" id="plans-compare" hidden>
+      <h2>O que cada faixa cobre</h2>
+      <p class="plans-compare-lead">Comparação direta. 'Quando abrir' significa que o recurso está no catálogo, não que já está cobrado ou liberado.</p>
+      <div class="plans-compare-wrap">
+        <table class="plans-compare-table" id="plans-compare-table"></table>
+      </div>
+    </section>
+
+    <section class="plans-faq" id="plans-faq" hidden>
+      <h2>Antes de decidir</h2>
+      <div id="plans-faq-list" class="accordion"></div>
+    </section>
+
+    <footer class="public-footer">
+      <div class="public-footer-main">
+        <div class="public-footer-brand">
+          <a class="brand-lockup is-lg" href="/" aria-label="ProENEM Lab">
+            <img class="brand-mark" src="/assets/images/logo-mark.png" alt="">
+            <span class="brand-wordmark" aria-hidden="true">Pro<span>ENEM</span> Lab</span>
+          </a>
+          <p>Banco oficial do ENEM, roadmap e a contagem até 8 e 15 de novembro de 2026.</p>
+        </div>
+        <nav class="public-footer-nav" aria-label="Rodapé">
+          <a href="/">Início</a>
+          <a href="/#fonte">Fonte</a>
+          <a href="/#app">O app</a>
+          <button type="button" data-open-auth="login">Entrar</button>
+          <button type="button" data-open-auth="register">Criar conta</button>
+        </nav>
+      </div>
+      <div class="public-footer-meta">
+        <p>Questões oficiais: ENEM/INEP, servidas via enem-api (GPL-2.0).</p>
+        <p>ENEM 2026 · 8 e 15 de novembro</p>
+      </div>
+    </footer>
+  </div>
+
+  <auth-modal></auth-modal>
+
+  <script type="module" src="/assets/js/motion.js"></script>
+  <script type="module" src="/assets/js/components/toast.js"></script>
+  <script type="module" src="/assets/js/components/public-navbar.js"></script>
+  <script type="module" src="/assets/js/components/auth-modal.js"></script>
+  <script type="module" src="/assets/js/pages/plans.js"></script>
+</body>
+</html>

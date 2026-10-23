@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendário · ProENEM Lab</title>
+  <link rel="icon" id="favicon" href="/assets/images/icon-dark.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/motion.css">
+  <link rel="stylesheet" href="/assets/css/pages/app-shell.css">
+  <link rel="stylesheet" href="/assets/css/pages/study.css">
+  <script src="/assets/js/auth-guard.js"></script>
+  <script>document.documentElement.setAttribute("data-theme","dark");</script>
+</head>
+<body>
+  <toast-container></toast-container>
+  <div class="app-shell">
+    <app-navbar></app-navbar>
+    <div class="app-body">
+      <app-sidebar></app-sidebar>
+      <main class="app-content">
+        <div class="app-content-inner">
+          <header class="page-header">
+            <p class="page-kicker">Semana</p>
+            <h1>Planejamento semanal</h1>
+            <p>Arraste uma disciplina para a grade. Cada bloco guarda a matéria e o número de Pomodoros daquele horário.</p>
+          </header>
+          <p id="calendar-error" class="study-error" role="alert" hidden></p>
+          <div class="calendar-layout">
+            <aside class="palette" id="palette" aria-label="Disciplinas"></aside>
+            <div>
+              <div class="week-toolbar">
+                <button type="button" class="btn btn-ghost" id="week-prev" aria-label="Semana anterior">◀</button>
+                <p id="week-label" class="week-label">Carregando...</p>
+                <button type="button" class="btn btn-ghost" id="week-today">Hoje</button>
+                <button type="button" class="btn btn-ghost" id="week-next" aria-label="Próxima semana">▶</button>
+                <button type="button" class="btn btn-ghost" id="week-copy">Copiar semana anterior</button>
+                <button type="button" class="btn btn-primary" id="open-form">Adicionar bloco</button>
+              </div>
+              <p id="readonly-note" class="readonly-note" hidden>Semana encerrada. Os blocos ficam somente leitura.</p>
+              <div id="cal-live" class="sr-only" aria-live="polite"></div>
+              <form class="block-form card" id="block-form" hidden>
+                <div class="field">
+                  <label for="block-subject">Disciplina</label>
+                  <select id="block-subject" required></select>
+                </div>
+                <div class="field">
+                  <label for="block-day">Dia</label>
+                  <select id="block-day"></select>
+                </div>
+                <div class="field">
+                  <label for="block-start">Início</label>
+                  <select id="block-start"></select>
+                </div>
+                <div class="field">
+                  <label for="block-duration">Duração</label>
+                  <select id="block-duration"></select>
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar bloco</button>
+              </form>
+              <div class="cal-scroll">
+                <div class="cal-sheet" id="cal-sheet"></div>
+              </div>
+              <div id="week-summary" class="week-summary" aria-label="Total planejado por disciplina"></div>
+              <form class="settings-form card" id="settings-form">
+                <div class="field">
+                  <label for="focus-minutes">Foco (min)</label>
+                  <input id="focus-minutes" type="number" min="5" max="90" required>
+                </div>
+                <div class="field">
+                  <label for="short-break">Pausa curta</label>
+                  <input id="short-break" type="number" min="1" max="30" required>
+                </div>
+                <div class="field">
+                  <label for="long-break">Pausa longa</label>
+                  <input id="long-break" type="number" min="5" max="60" required>
+                </div>
+                <div class="field">
+                  <label for="cycle-count">Ciclos até a pausa longa</label>
+                  <input id="cycle-count" type="number" min="2" max="8" required>
+                </div>
+                <label class="field">
+                  <input id="auto-start" type="checkbox">
+                  Iniciar blocos automaticamente
+                </label>
+                <fieldset class="focus-prefs">
+                  <legend>Foco Total</legend>
+                  <label class="field">
+                    <input id="focus-mode" type="checkbox">
+                    Ativar Foco Total automaticamente nos Pomodoros
+                  </label>
+                  <label class="field">
+                    <input id="focus-fullscreen" type="checkbox" checked>
+                    Usar tela cheia
+                  </label>
+                  <label class="field">
+                    <input id="focus-sound" type="checkbox">
+                    Som no fim do ciclo
+                  </label>
+                  <p class="focus-limits">A tela cheia só entra quando você clica em iniciar, o site não consegue silenciar avisos de outros aplicativos (ative o Não perturbe do celular ou do computador) e, se você sair da tela cheia, o fundo escuro continua.</p>
+                </fieldset>
+                <label class="field">
+                  <input id="sound-on" type="checkbox">
+                  Aviso sonoro
+                </label>
+                <button type="submit" class="btn btn-ghost">Salvar preferências</button>
+                <button type="button" class="btn btn-ghost" id="loose-start">Pomodoro avulso</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script type="module" src="/assets/js/motion.js"></script>
+  <script type="module" src="/assets/js/components/toast.js"></script>
+  <script type="module" src="/assets/js/components/app-navbar.js"></script>
+  <script type="module" src="/assets/js/components/app-sidebar.js"></script>
+  <script type="module" src="/assets/js/pages/calendar.js"></script>
+</body>
+</html>

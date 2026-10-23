@@ -1,0 +1,108 @@
+:root {
+
+  --color-brand: #2FA8E8;
+  --color-primary: #4DB8F0;
+  --color-primary-hover: #6BC4F4;
+  --color-on-primary: #071018;
+  --color-navy: #0B2545;
+  --color-navy-light: #123A6B;
+
+  --color-bg: #070E18;
+  --color-bg-soft: #0C1524;
+  --color-surface: #121C2E;
+  --color-surface-raised: #18253C;
+  --color-border: #24344C;
+  --color-text-primary: #F2F5F9;
+  --color-text-secondary: #9AA8BC;
+
+  --color-success: #3DD68C;
+  --color-warning: #F5A623;
+  --color-danger: #F07178;
+  --color-overlay: rgba(0, 0, 0, 0.72);
+  --color-primary-soft: rgba(47, 168, 232, 0.16);
+  --color-success-soft: rgba(61, 214, 140, 0.14);
+  --color-warning-soft: rgba(245, 166, 35, 0.16);
+  --color-danger-soft: rgba(240, 113, 120, 0.14);
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 20px;
+  --radius-btn: 2px;
+  --radius-card: 10px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 1px 0 rgba(255, 255, 255, 0.04);
+  --shadow-md: 0 24px 48px rgba(0, 0, 0, 0.42);
+  --shadow-feature: 8px 8px 0 rgba(47, 168, 232, 0.35);
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 72px;
+
+  --font: "Raleway", "Segoe UI", sans-serif;
+  --font-display: var(--font);
+  --font-sans: var(--font);
+  --topbar-height: 80px;
+  --sidebar-width: 248px;
+  --layout-max: 1280px;
+  --content-max: 1120px;
+  --layout-gutter: clamp(20px, 4.5vw, 88px);
+  --layout-pad: max(var(--layout-gutter), calc((100% - var(--layout-max)) / 2));
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  --ease-snap: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --duration-fast: 160ms;
+  --duration-med: 280ms;
+  --duration-enter: 620ms;
+  --duration-slow: 880ms;
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --layout-max: 1360px;
+    --content-max: 1240px;
+    --layout-gutter: clamp(32px, 5vw, 112px);
+  }
+}
+
+@media (min-width: 1680px) {
+  :root {
+    --layout-max: 1520px;
+    --content-max: 1360px;
+    --layout-gutter: clamp(40px, 5.5vw, 140px);
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --layout-max: 1680px;
+    --content-max: 1480px;
+  }
+}
+
+[data-theme="light"] {
+  --color-primary: #2FA8E8;
+  --color-primary-hover: #1E8FCE;
+  --color-on-primary: #FFFFFF;
+  --color-bg: #FFFFFF;
+  --color-bg-soft: #F7FAFC;
+  --color-surface: #FFFFFF;
+  --color-surface-raised: #FFFFFF;
+  --color-border: #E1E7EF;
+  --color-text-primary: #2D3748;
+  --color-text-secondary: #718096;
+  --color-success: #2FBF71;
+  --color-danger: #E5484D;
+  --color-overlay: rgba(11, 37, 69, 0.45);
+  --color-primary-soft: rgba(47, 168, 232, 0.12);
+  --color-success-soft: rgba(47, 191, 113, 0.12);
+  --color-warning-soft: rgba(245, 166, 35, 0.14);
+  --color-danger-soft: rgba(229, 72, 77, 0.12);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-feature: 6px 6px 0 rgba(11, 37, 69, 0.12);
+}

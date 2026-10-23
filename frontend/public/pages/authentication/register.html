@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criar conta · ProENEM Lab</title>
+  <link rel="icon" id="favicon" href="/assets/images/icon-dark.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/motion.css">
+  <link rel="stylesheet" href="/assets/css/pages/auth.css">
+  <link rel="stylesheet" href="/assets/css/pages/dashboard.css">
+  <script>document.documentElement.setAttribute("data-theme","dark");</script>
+</head>
+<body>
+  <toast-container></toast-container>
+
+  <main class="auth-layout">
+    <section class="auth-form-panel">
+      <div class="auth-form-inner">
+        <a class="brand-lockup" href="/" aria-label="ProENEM Lab">
+          <img class="brand-mark" src="/assets/images/logo-mark.png" alt="">
+          <span class="brand-wordmark" aria-hidden="true">Pro<span>ENEM</span> Lab</span>
+        </a>
+        <p class="auth-kicker">Cadastro</p>
+        <h1>Criar conta</h1>
+        <p class="auth-subtitle">E-mail e senha. Em seguida, o roadmap e o banco de questões oficiais do ENEM. Nesta fase não pedimos cartão.</p>
+
+        <form id="register-form" novalidate>
+          <div class="form-alert" data-form-alert hidden></div>
+          <div class="field">
+            <label for="name">Nome</label>
+            <input id="name" name="name" type="text" autocomplete="name" required placeholder="Como você quer ser chamado">
+            <span class="field-error"></span>
+          </div>
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required placeholder="voce@email.com">
+            <span class="field-error"></span>
+          </div>
+          <div class="field">
+            <label for="password">Senha</label>
+            <div class="field-control">
+              <input id="password" name="password" type="password" autocomplete="new-password" required minlength="8">
+              <button type="button" class="password-toggle" data-password-toggle="password" aria-label="Mostrar senha"></button>
+            </div>
+            <span class="field-hint">Mínimo de 8 caracteres.</span>
+            <span class="field-error"></span>
+          </div>
+          <div class="field">
+            <label for="password-confirm">Confirmar senha</label>
+            <div class="field-control">
+              <input id="password-confirm" name="password-confirm" type="password" autocomplete="new-password" required minlength="8">
+              <button type="button" class="password-toggle" data-password-toggle="password-confirm" aria-label="Mostrar senha"></button>
+            </div>
+            <span class="field-error"></span>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Criar conta para estudar</button>
+        </form>
+
+        <p class="auth-legal">A conta guarda o progresso no banco e no roadmap. Questões oficiais: ENEM/INEP, via enem-api.</p>
+
+        <div class="auth-switch">
+          <p>Já tem uma conta?</p>
+          <a class="btn btn-ghost btn-block" href="/pages/authentication/login.html">Entrar na plataforma</a>
+        </div>
+      </div>
+    </section>
+
+    <auth-art quote="Cadastro só com e-mail. Depois, o dashboard conta os dias até a prova."></auth-art>
+  </main>
+
+  <script type="module" src="/assets/js/motion.js"></script>
+  <script type="module" src="/assets/js/components/toast.js"></script>
+  <script type="module" src="/assets/js/pages/register.js"></script>
+</body>
+</html>

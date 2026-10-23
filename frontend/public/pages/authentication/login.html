@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrar · ProENEM Lab</title>
+  <link rel="icon" id="favicon" href="/assets/images/icon-dark.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/motion.css">
+  <link rel="stylesheet" href="/assets/css/pages/auth.css">
+  <link rel="stylesheet" href="/assets/css/pages/dashboard.css">
+  <script>document.documentElement.setAttribute("data-theme","dark");</script>
+</head>
+<body>
+  <toast-container></toast-container>
+
+  <main class="auth-layout">
+    <section class="auth-form-panel">
+      <div class="auth-form-inner">
+        <a class="brand-lockup" href="/" aria-label="ProENEM Lab">
+          <img class="brand-mark" src="/assets/images/logo-mark.png" alt="">
+          <span class="brand-wordmark" aria-hidden="true">Pro<span>ENEM</span> Lab</span>
+        </a>
+        <p class="auth-kicker">Acesso à plataforma</p>
+        <h1>Entrar</h1>
+        <p class="auth-subtitle">Retome o roadmap e o banco de questões oficiais do ENEM. A prova é em novembro; o que você responder hoje conta.</p>
+
+        <form id="login-form" novalidate>
+          <div class="form-alert" data-form-alert hidden></div>
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required placeholder="voce@email.com">
+            <span class="field-error"></span>
+          </div>
+          <div class="field">
+            <label for="password">Senha</label>
+            <div class="field-control">
+              <input id="password" name="password" type="password" autocomplete="current-password" required>
+              <button type="button" class="password-toggle" data-password-toggle="password" aria-label="Mostrar senha"></button>
+            </div>
+            <span class="field-error"></span>
+          </div>
+
+          <p class="auth-row">
+            <a href="/pages/authentication/forgot-password.html">Esqueci minha senha</a>
+            <a href="/">Voltar ao início</a>
+          </p>
+
+          <button type="submit" class="btn btn-primary btn-block">Entrar na plataforma</button>
+        </form>
+
+        <p class="auth-legal">O ProENEM Lab guarda nome, e-mail e progresso de estudo para operar a conta. Não vendemos dados. <button type="button" id="privacy-link">Política de privacidade</button></p>
+
+        <div class="auth-switch">
+          <p>Ainda não tem conta?</p>
+          <a class="btn btn-ghost btn-block" href="/pages/authentication/register.html">Criar conta para estudar</a>
+        </div>
+      </div>
+    </section>
+
+    <auth-art quote="O primeiro domingo de prova é 8 de novembro de 2026."></auth-art>
+  </main>
+
+  <div class="modal-backdrop" id="privacy-modal">
+    <div class="modal" role="dialog" aria-labelledby="privacy-title" aria-modal="true">
+      <h2 id="privacy-title">Política de privacidade</h2>
+      <p>O ProENEM Lab armazena o que a conta precisa para funcionar: nome, e-mail, senha (hash), progresso no roadmap, respostas no banco e conjuntos de filtro que você salvar.</p>
+      <p class="muted">Não vendemos dados a terceiros. Questões oficiais vêm do INEP, via enem-api. Nesta fase o token de sessão fica em localStorage; uma versão posterior deve migrar para cookie httpOnly.</p>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-primary" data-close-modal>Entendi</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/assets/js/motion.js"></script>
+  <script type="module" src="/assets/js/components/toast.js"></script>
+  <script type="module" src="/assets/js/pages/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+Flask
+Flask-SQLAlchemy
+Flask-JWT-Extended
+Flask-CORS
+Werkzeug
+marshmallow
+email-validator
+tzdata
+reportlab==4.4.4
+pillow==11.3.0
+pywebpush
+APScheduler
+cryptography

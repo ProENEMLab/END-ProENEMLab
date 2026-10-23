@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estatísticas · ProENEM Lab</title>
+  <link rel="icon" id="favicon" href="/assets/images/icon-dark.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/motion.css">
+  <link rel="stylesheet" href="/assets/css/pages/app-shell.css">
+  <link rel="stylesheet" href="/assets/css/pages/stats.css">
+  <script src="/assets/js/auth-guard.js"></script>
+  <script>document.documentElement.setAttribute("data-theme","dark");</script>
+</head>
+<body>
+  <toast-container></toast-container>
+  <div class="app-shell">
+    <app-navbar></app-navbar>
+    <div class="app-body">
+      <app-sidebar></app-sidebar>
+      <main class="app-content">
+        <div class="app-content-inner">
+          <header class="page-header">
+            <p class="page-kicker">Desempenho</p>
+            <div class="page-header-tools">
+              <h1>Estatísticas</h1>
+              <button type="button" class="btn btn-ghost" data-export-pdf>Exportar PDF</button>
+            </div>
+            <p>Acerto geral, tópicos mais fracos e origem dos erros — só com as questões que você já respondeu neste banco. Sem tentativas, os gráficos ficam vazios de propósito.</p>
+          </header>
+
+          <div id="stats-loading" class="grid-2">
+            <div class="card"><div class="skeleton" style="height:180px"></div></div>
+            <div class="card"><div class="skeleton" style="height:180px"></div></div>
+          </div>
+
+          <div id="stats-content" hidden>
+            <section class="card stat-hero" style="margin-bottom:24px">
+              <p class="card-title">Acerto geral</p>
+              <div class="value" id="overall-accuracy">0%</div>
+            </section>
+
+            <div id="stats-empty" class="card empty-state" hidden style="margin-bottom:24px">
+              <h3>Sem dados ainda</h3>
+              <p>Responda algumas questões para ver seus gráficos de desempenho.</p>
+            </div>
+
+            <section id="subject-focus" class="card" hidden style="margin-bottom:24px">
+              <p class="card-title" id="subject-focus-title">Desempenho na matéria</p>
+              <div class="value" id="subject-focus-value">—</div>
+              <p class="muted" id="subject-focus-meta"></p>
+            </section>
+
+            <div class="grid-2">
+              <section class="card">
+                <h2>Acerto por tópico</h2>
+                <div class="chart-wrap">
+                  <canvas id="by-topic-chart"></canvas>
+                </div>
+              </section>
+              <section class="card">
+                <h2>3 piores tópicos</h2>
+                <ol class="worst-list" id="worst-topics"></ol>
+              </section>
+            </div>
+
+            <section class="card" style="margin-top:24px">
+              <h2>Distribuição dos erros</h2>
+              <div class="chart-wrap">
+                <canvas id="error-chart"></canvas>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script type="module" src="/assets/js/motion.js"></script>
+  <script type="module" src="/assets/js/components/toast.js"></script>
+  <script type="module" src="/assets/js/components/app-navbar.js"></script>
+  <script type="module" src="/assets/js/components/app-sidebar.js"></script>
+  <script type="module" src="/assets/js/pages/stats.js"></script>
+</body>
+</html>

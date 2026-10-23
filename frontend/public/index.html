@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ProENEM Lab — preparação para o ENEM com questões oficiais</title>
+  <link rel="icon" id="favicon" href="/assets/images/icon-dark.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/motion.css">
+  <link rel="stylesheet" href="/assets/css/pages/landing.css">
+  <link rel="stylesheet" href="/assets/css/pages/auth.css">
+  <link rel="stylesheet" href="/assets/css/pages/dashboard.css">
+  <script>document.documentElement.setAttribute("data-theme","dark");</script>
+</head>
+<body>
+  <toast-container></toast-container>
+  <div class="public-shell">
+    <public-navbar></public-navbar>
+
+    <section class="landing-hero">
+      <p class="landing-year" aria-hidden="true">2026</p>
+      <div>
+        <p class="landing-kicker">Para quem vai fazer o ENEM</p>
+        <h1>Estude as questões que realmente caíram na prova.</h1>
+        <p class="lede">Banco oficial do ENEM, tópicos em ordem e um painel com o que falta — inclusive os dias até 8 e 15 de novembro de 2026.</p>
+        <div class="landing-hero-actions">
+          <button type="button" class="btn btn-primary" data-open-auth="register">Criar conta para estudar</button>
+          <button type="button" class="btn btn-ghost" data-open-auth="login">Já tenho conta</button>
+        </div>
+      </div>
+      <aside class="landing-hero-aside" id="landing-countdown"></aside>
+    </section>
+
+    <section class="landing-band">
+      <div class="landing-band-dates" aria-label="Datas oficiais do ENEM 2026">
+        <div class="landing-date">
+          <span class="landing-date-day">08</span>
+          <span class="landing-date-month">novembro</span>
+          <span class="landing-date-label">1º dia · linguagens, humanas, redação</span>
+        </div>
+        <div class="landing-date">
+          <span class="landing-date-day">15</span>
+          <span class="landing-date-month">novembro</span>
+          <span class="landing-date-label">2º dia · natureza e matemática</span>
+        </div>
+      </div>
+      <div>
+        <h2>Dois domingos. O resto do app existe em função dessas datas.</h2>
+        <p>O painel conta os dias no relógio do seu aparelho até o primeiro domingo de prova.</p>
+      </div>
+    </section>
+
+    <section id="fonte" class="landing-source">
+      <header class="landing-source-head">
+        <p class="landing-kicker">Fonte</p>
+        <h2>As questões são as da prova. Não há enunciado inventado para treino.</h2>
+        <p>O backend baixa o banco da API pública enem-api (provas do INEP) e serve pelo ProENEM Lab. A página não chama api.enem.dev a cada clique.</p>
+      </header>
+      <dl class="source-facts">
+        <div>
+          <dt>Origem</dt>
+          <dd>INEP — enunciados e alternativas da prova oficial do ENEM.</dd>
+        </div>
+        <div>
+          <dt>Canal</dt>
+          <dd>enem-api — API pública, sem chave, documentada em docs.enem.dev.</dd>
+        </div>
+        <div>
+          <dt>Licença</dt>
+          <dd>GPL-2.0 — da origem do banco. Atribuição mantida no produto.</dd>
+        </div>
+        <div>
+          <dt>Serviço</dt>
+          <dd>ProENEM Lab guarda o banco. Você consulta o Lab, não a API a cada clique.</dd>
+        </div>
+      </dl>
+      <ol class="source-path">
+        <li>
+          <span>1</span>
+          <p>A API pública publica as provas do INEP.</p>
+        </li>
+        <li>
+          <span>2</span>
+          <p>O backend baixa e armazena o banco.</p>
+        </li>
+        <li>
+          <span>3</span>
+          <p>Você responde o mesmo enunciado da prova.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="app" class="landing-features">
+      <header class="feature-lead">
+        <p class="landing-kicker">Depois do cadastro</p>
+        <h2>O app abre nestas três peças, nesta sequência.</h2>
+        <p>Banco de prova, ordem de estudo e o que falta até novembro — no relógio deste aparelho.</p>
+      </header>
+      <div class="feature-bento">
+        <article class="feature-card is-lead">
+          <span class="feature-index" aria-hidden="true">01</span>
+          <h3>Banco de questões oficiais</h3>
+          <p>Provas do ENEM via API pública (INEP / enem-api). Filtro por ano, matéria, tópico e idioma. O backend guarda o banco; a página não chama a API a cada clique.</p>
+          <ul class="feature-chips">
+            <li>Ano</li>
+            <li>Matéria</li>
+            <li>Tópico</li>
+            <li>Idioma</li>
+          </ul>
+          <p class="feature-note">Conjuntos de filtro salvos e opção de ocultar o que você já respondeu.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-index" aria-hidden="true">02</span>
+          <h3>Roadmap linear</h3>
+          <p>Tópicos em ordem, com anotações e prática ligada à matéria. Você marca o que está em andamento e o que já concluiu.</p>
+        </article>
+        <article class="feature-card is-dates">
+          <span class="feature-index" aria-hidden="true">03</span>
+          <h3>Painel de ritmo</h3>
+          <p>Próximo tópico, meta do dia e os dias que faltam para 8 de novembro — no mesmo lugar.</p>
+          <div class="feature-dates" aria-hidden="true">
+            <span>08<span>nov · 1º dia</span></span>
+            <span>15<span>nov · 2º dia</span></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="planos" class="landing-plans">
+      <header class="landing-plans-lead">
+        <p class="landing-kicker">Planos</p>
+        <div>
+          <h2>Gratuito agora. Pro e Elite, quando houver cobrança.</h2>
+          <p>O cadastro já abre o banco, o roadmap e as estatísticas. As faixas pagas estão no catálogo com o rótulo 'Em breve' — sem checkout nesta fase.</p>
+        </div>
+        <a class="btn btn-ghost landing-plans-cta" href="/pages/plans/index.html">Ver o que cada plano cobre</a>
+      </header>
+      <div class="landing-plan-grid">
+        <article class="landing-plan is-now">
+          <p class="landing-plan-name">Gratuito</p>
+          <p class="landing-plan-price">R$ 0 <span>sempre</span></p>
+          <p class="landing-plan-status">Disponível agora · sem cartão</p>
+          <ul>
+            <li>Banco oficial do ENEM (INEP, via enem-api)</li>
+            <li>Filtros por ano, matéria e tópico</li>
+            <li>Roadmap linear com anotações</li>
+            <li>Painel com dias até a prova</li>
+            <li>Estatísticas das questões que você respondeu</li>
+          </ul>
+          <button type="button" class="btn btn-primary" data-open-auth="register">Criar conta para estudar</button>
+        </article>
+        <article class="landing-plan">
+          <p class="landing-plan-name">Pro <span class="is-value">recomendado</span></p>
+          <p class="landing-plan-price">Em breve</p>
+          <p class="landing-plan-status">Tudo do Gratuito, mais:</p>
+          <ul>
+            <li>Simulados montados por disciplina</li>
+            <li>Relatório de desempenho por ano de prova</li>
+            <li>Prioridade nos tópicos com menor acerto</li>
+            <li>Histórico de filtros ilimitado</li>
+          </ul>
+        </article>
+        <article class="landing-plan">
+          <p class="landing-plan-name">Elite <span class="is-complete">mais completo</span></p>
+          <p class="landing-plan-price">Em breve</p>
+          <p class="landing-plan-status">Tudo do Pro, mais:</p>
+          <ul>
+            <li>Teste gerado a partir do seu histórico</li>
+            <li>Raio-X de pontos fracos por disciplina</li>
+            <li>Desafio semanal automático</li>
+            <li>Suporte prioritário quando houver cobrança</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="landing-cta">
+      <div class="landing-cta-inner">
+        <div>
+          <h2>Crie a conta e abra o tópico seguinte.</h2>
+          <p>Cadastro com e-mail. O dashboard mostra por onde começar e quantos dias faltam para 8 de novembro.</p>
+        </div>
+        <button type="button" class="btn btn-primary" data-open-auth="register">Cadastrar com e-mail</button>
+      </div>
+    </section>
+
+    <section id="landing-testimonials" class="landing-testimonials" hidden>
+      <h2>Quem estudou aqui</h2>
+      <p class="muted">Depoimentos com consentimento registrado.</p>
+      <div id="landing-testimonials-grid" class="testimonials-grid"></div>
+    </section>
+
+    <footer class="public-footer">
+      <div class="public-footer-main">
+        <div class="public-footer-brand">
+          <a class="brand-lockup is-lg" href="/" aria-label="ProENEM Lab">
+            <img class="brand-mark" src="/assets/images/logo-mark.png" alt="">
+            <span class="brand-wordmark" aria-hidden="true">Pro<span>ENEM</span> Lab</span>
+          </a>
+          <p>Banco oficial do ENEM, roadmap e a contagem até 8 e 15 de novembro de 2026.</p>
+        </div>
+        <nav class="public-footer-nav" aria-label="Rodapé">
+          <a href="/#fonte">Fonte</a>
+          <a href="/#app">O app</a>
+          <a href="/pages/plans/index.html">Planos</a>
+          <button type="button" data-open-auth="login">Entrar</button>
+          <button type="button" data-open-auth="register">Criar conta</button>
+        </nav>
+      </div>
+      <div class="public-footer-meta">
+        <p>Questões oficiais: ENEM/INEP, servidas via enem-api (GPL-2.0).</p>
+        <p>ENEM 2026 · 8 e 15 de novembro</p>
+      </div>
+    </footer>
+  </div>
+
+  <auth-modal></auth-modal>
+
+  <script type="module" src="/assets/js/motion.js"></script>
+  <script type="module" src="/assets/js/components/toast.js"></script>
+  <script type="module" src="/assets/js/components/public-navbar.js"></script>
+  <script type="module" src="/assets/js/components/auth-modal.js"></script>
+  <script type="module" src="/assets/js/pages/landing.js"></script>
+</body>
+</html>

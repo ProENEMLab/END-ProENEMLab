@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Questão · ProENEM Lab</title>
+  <link rel="icon" id="favicon" href="/assets/images/icon-dark.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/motion.css">
+  <link rel="stylesheet" href="/assets/css/pages/app-shell.css">
+  <link rel="stylesheet" href="/assets/css/pages/questions.css">
+  <script src="/assets/js/auth-guard.js"></script>
+  <script>document.documentElement.setAttribute("data-theme","dark");</script>
+</head>
+<body>
+  <toast-container></toast-container>
+  <div class="app-shell">
+    <app-navbar></app-navbar>
+    <div class="app-body">
+      <app-sidebar></app-sidebar>
+      <main class="app-content">
+        <div class="app-content-inner">
+          <p class="page-back"><a href="/pages/questions/index.html">Voltar ao banco</a></p>
+
+          <div id="question-loading">
+            <div class="card"><div class="skeleton" style="height:280px"></div></div>
+          </div>
+
+          <article id="question-content" class="question-sheet" hidden>
+            <div class="row" id="question-meta"></div>
+            <h1 id="question-heading">Questão</h1>
+            <div id="question-context" class="question-lede"></div>
+            <p id="question-statement"></p>
+            <p id="alternatives-intro" class="muted" hidden></p>
+            <div id="question-image-wrap" hidden></div>
+            <div id="question-files" hidden></div>
+
+            <div id="answer-banner" hidden role="status" aria-live="polite"></div>
+            <div id="options" class="options"></div>
+
+            <button type="button" class="btn btn-primary" id="submit-answer">Responder</button>
+            <button type="button" class="btn btn-primary" id="next-question" hidden>Próxima questão</button>
+
+            <section id="explanation" class="explanation" hidden tabindex="-1"></section>
+            <p class="source-note" id="question-source"></p>
+
+            <section id="error-prompt" class="error-prompt" hidden>
+              <h3>Por que você errou?</h3>
+              <p class="muted">Essa classificação alimenta suas estatísticas de desempenho.</p>
+              <div class="row">
+                <button type="button" class="btn btn-ghost" data-error-type="conceito">Falta de conceito</button>
+                <button type="button" class="btn btn-ghost" data-error-type="atencao">Erro de atenção</button>
+              </div>
+            </section>
+          </article>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script type="module" src="/assets/js/motion.js"></script>
+  <script type="module" src="/assets/js/components/toast.js"></script>
+  <script type="module" src="/assets/js/components/app-navbar.js"></script>
+  <script type="module" src="/assets/js/components/app-sidebar.js"></script>
+  <script type="module" src="/assets/js/pages/question.js"></script>
+</body>
+</html>

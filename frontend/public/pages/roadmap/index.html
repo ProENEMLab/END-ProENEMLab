@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roadmap · ProENEM Lab</title>
+  <link rel="icon" id="favicon" href="/assets/images/icon-dark.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/motion.css">
+  <link rel="stylesheet" href="/assets/css/pages/app-shell.css">
+  <link rel="stylesheet" href="/assets/css/pages/roadmap.css">
+  <script src="/assets/js/auth-guard.js"></script>
+  <script>document.documentElement.setAttribute("data-theme","dark");</script>
+</head>
+<body>
+  <toast-container></toast-container>
+  <div class="app-shell">
+    <app-navbar></app-navbar>
+    <div class="app-body">
+      <app-sidebar></app-sidebar>
+      <main class="app-content">
+        <div class="app-content-inner">
+          <header class="page-header">
+            <p class="page-kicker">Trilha</p>
+            <h1>Roadmap</h1>
+            <p id="roadmap-source" class="roadmap-source" hidden></p>
+            <div id="roadmap-notice" class="roadmap-notice" hidden>
+              <p id="roadmap-notice-text"></p>
+              <button type="button" class="btn btn-ghost" id="roadmap-notice-dismiss">Entendi</button>
+            </div>
+            <p>Tópicos na ordem do roadmap. Quando há uma versão ativa, a ordem vem das provas e do edital usados na geração.</p>
+            <button type="button" class="btn btn-ghost" id="btn-refresh-incidence">Atualizar incidência INEP</button>
+          </header>
+
+          <div id="roadmap-loading">
+            <div class="card"><div class="skeleton" style="height:72px"></div></div>
+            <div class="card" style="margin-top:12px"><div class="skeleton" style="height:220px"></div></div>
+          </div>
+
+          <div id="roadmap-content" hidden>
+            <div class="card progress-wrap">
+              <div class="progress-meta">
+                <span id="progress-label">Carregando...</span>
+                <strong id="progress-percent">0%</strong>
+              </div>
+              <div class="progress-bar"><span id="progress-fill" style="width:0%"></span></div>
+            </div>
+            <div id="topic-list" class="topic-list"></div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script type="module" src="/assets/js/motion.js"></script>
+  <script type="module" src="/assets/js/components/toast.js"></script>
+  <script type="module" src="/assets/js/components/app-navbar.js"></script>
+  <script type="module" src="/assets/js/components/app-sidebar.js"></script>
+  <script type="module" src="/assets/js/pages/roadmap.js"></script>
+</body>
+</html>

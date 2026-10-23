@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relatório semanal · ProENEM Lab</title>
+  <link rel="icon" id="favicon" href="/assets/images/icon-dark.png">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/motion.css">
+  <link rel="stylesheet" href="/assets/css/pages/app-shell.css">
+  <link rel="stylesheet" href="/assets/css/pages/study.css">
+  <link rel="stylesheet" href="/assets/css/pages/report.css">
+  <script src="/assets/js/auth-guard.js"></script>
+  <script>document.documentElement.setAttribute("data-theme","dark");</script>
+</head>
+<body>
+  <toast-container></toast-container>
+  <div class="app-shell">
+    <app-navbar></app-navbar>
+    <div class="app-body">
+      <app-sidebar></app-sidebar>
+      <main class="app-content">
+        <div class="app-content-inner">
+          <header class="page-header">
+            <p class="page-kicker">Semana</p>
+            <h1>Relatório semanal</h1>
+            <p>Evolução e regressão por tópico, e as horas líquidas do foco fechado no Pomodoro. Pausas não entram.</p>
+          </header>
+
+          <div class="report-toolbar" id="report-toolbar">
+            <button type="button" class="btn btn-ghost" id="week-prev" aria-label="Semana anterior">◀</button>
+            <p id="report-week" class="week-label" aria-live="polite">Carregando...</p>
+            <button type="button" class="btn btn-ghost" id="week-next" aria-label="Próxima semana">▶</button>
+            <span id="report-partial" class="badge badge-warning" hidden>Semana em andamento</span>
+          </div>
+
+          <p id="report-error" class="study-error" role="alert" hidden></p>
+          <p id="report-status" class="muted">Carregando relatório...</p>
+
+          <div id="report-body" hidden>
+            <section class="card report-hero">
+              <p class="card-title">Horas líquidas</p>
+              <p class="report-hours" id="report-hours">0 min</p>
+              <p id="report-compare"></p>
+              <p id="report-planned" class="muted"></p>
+              <p id="report-totals" class="muted"></p>
+              <p id="report-interruptions" class="muted"></p>
+            </section>
+
+            <div id="report-empty" class="card" hidden>
+              <h2>Nada registrado nesta semana</h2>
+              <p>Responda questões e feche ciclos de foco para ver em quais tópicos você evoluiu, em quais regrediu e quantas horas líquidas estudou.</p>
+              <div class="report-actions">
+                <a class="btn btn-primary" href="/pages/calendar/index.html">Abrir o calendário</a>
+                <a class="btn btn-ghost" href="/pages/roadmap/index.html">Abrir o roadmap</a>
+              </div>
+            </div>
+
+            <div id="report-detail">
+              <div class="report-charts">
+                <section class="card">
+                  <h2>Por dia</h2>
+                  <div id="chart-days" class="report-bars"></div>
+                </section>
+                <section class="card">
+                  <h2>Por disciplina</h2>
+                  <div id="chart-subjects" class="report-bars report-bars-subjects"></div>
+                </section>
+              </div>
+
+              <div class="report-columns">
+                <section class="card" aria-labelledby="evolved-title">
+                  <h2 id="evolved-title"><span aria-hidden="true">↑</span> Evoluiu</h2>
+                  <div id="evolved-list" class="stack"></div>
+                </section>
+                <section class="card" aria-labelledby="regressed-title">
+                  <h2 id="regressed-title"><span aria-hidden="true">↓</span> Regrediu</h2>
+                  <div id="regressed-list" class="stack"></div>
+                </section>
+              </div>
+
+              <details class="card report-fold">
+                <summary>Estáveis <span id="stable-count"></span></summary>
+                <div id="stable-list" class="stack"></div>
+              </details>
+              <details class="card report-fold">
+                <summary>Novos <span id="new-count"></span></summary>
+                <div id="new-list" class="stack"></div>
+              </details>
+              <details class="card report-fold">
+                <summary>Sem dados suficientes <span id="insufficient-count"></span></summary>
+                <p class="muted">Responda pelo menos 5 questões do tópico para entrar na comparação.</p>
+                <div id="insufficient-list" class="stack"></div>
+              </details>
+            </div>
+
+            <section class="card" id="report-trend">
+              <h2>Últimas 8 semanas</h2>
+              <div id="chart-trend" class="report-bars"></div>
+            </section>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script type="module" src="/assets/js/components/toast.js"></script>
+  <script type="module" src="/assets/js/components/app-navbar.js"></script>
+  <script type="module" src="/assets/js/components/app-sidebar.js"></script>
+  <script type="module" src="/assets/js/pages/report.js"></script>
+</body>
+</html>

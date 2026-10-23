@@ -1,0 +1,163 @@
+.report-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+  margin-bottom: var(--space-4);
+}
+
+.report-toolbar:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
+.report-hours {
+  font-family: var(--font);
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  font-weight: 200;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  margin: 0 0 var(--space-3);
+}
+
+.report-hero p:last-child {
+  margin-bottom: 0;
+}
+
+.report-charts,
+.report-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.report-bars {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 8px;
+  align-items: end;
+  margin-top: var(--space-3);
+}
+
+.report-bars-subjects {
+  grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
+}
+
+.report-bar,
+.report-trend-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  padding: 0;
+}
+
+.report-trend-bar {
+  cursor: pointer;
+}
+
+.report-bar-value,
+.report-bar-label {
+  font-size: 11px;
+  text-align: center;
+  color: var(--color-text-secondary);
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.report-bar-track {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  align-items: flex-end;
+  background: var(--color-bg-soft);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.report-bar-fill {
+  width: 100%;
+  background: var(--color-primary);
+  min-height: 2px;
+}
+
+.report-topic {
+  border-left: 4px solid var(--color-border);
+  padding-left: var(--space-3);
+}
+
+.report-topic-up {
+  border-left-color: var(--color-success);
+}
+
+.report-topic-down {
+  border-left-color: var(--color-danger);
+}
+
+.report-topic-status {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.report-topic-up .report-topic-status {
+  color: var(--color-success);
+}
+
+.report-topic-down .report-topic-status {
+  color: var(--color-danger);
+}
+
+.report-topic h3 {
+  margin: 4px 0;
+}
+
+.report-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.report-fold {
+  margin-top: var(--space-4);
+}
+
+.report-fold summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.report-fold summary:focus-visible,
+.report-trend-bar:focus-visible,
+.report-toolbar button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+#report-trend {
+  margin-top: var(--space-4);
+}
+
+@media (max-width: 800px) {
+  .report-charts,
+  .report-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .report-bar-track {
+    height: 88px;
+  }
+
+  .report-hours {
+    font-size: 2.4rem;
+  }
+}

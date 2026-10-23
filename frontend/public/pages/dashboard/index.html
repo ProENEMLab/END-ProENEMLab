@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard · ProENEM Lab</title>
+  <link rel="icon" id="favicon" href="/assets/images/icon-dark.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/motion.css">
+  <link rel="stylesheet" href="/assets/css/pages/app-shell.css">
+  <link rel="stylesheet" href="/assets/css/pages/dashboard.css">
+  <script src="/assets/js/auth-guard.js"></script>
+  <script>document.documentElement.setAttribute("data-theme","dark");</script>
+</head>
+<body>
+  <toast-container></toast-container>
+  <div class="app-shell">
+    <app-navbar></app-navbar>
+    <div class="app-body">
+      <app-sidebar></app-sidebar>
+      <main class="app-content">
+        <div class="app-content-inner dashboard-layout">
+          <header class="page-header">
+            <p class="page-kicker">Painel</p>
+            <h1>O que falta até a prova</h1>
+            <p>Contagem até o ENEM no relógio deste aparelho, o tópico seguinte do roadmap e a meta do dia. Os dois domingos são 8 e 15 de novembro de 2026.</p>
+          </header>
+
+          <div class="dashboard-countdown-block">
+            <div id="enem-countdown-root"></div>
+            <div class="dashboard-exam-dates" aria-label="Datas oficiais do ENEM 2026">
+              <div>
+                <span class="dashboard-exam-day">08</span>
+                <span class="dashboard-exam-meta">novembro · 1º dia</span>
+                <span class="dashboard-exam-label">Linguagens, humanas e redação</span>
+              </div>
+              <div>
+                <span class="dashboard-exam-day">15</span>
+                <span class="dashboard-exam-meta">novembro · 2º dia</span>
+                <span class="dashboard-exam-label">Natureza e matemática</span>
+              </div>
+            </div>
+          </div>
+
+          <div id="dashboard-loading">
+            <div class="skeleton" style="height:120px"></div>
+          </div>
+
+          <section class="card" id="progression-card" hidden></section>
+          <section class="card" id="review-today-card" hidden></section>
+          <section class="card weekly-dash-card" id="weekly-report-card" hidden></section>
+
+          <div id="dashboard-content" class="dashboard-grid" hidden>
+            <section class="card card-feature" id="next-step"></section>
+            <div class="dashboard-side">
+              <section class="card" id="daily-goal"></section>
+              <section class="card-plain" id="streak-card"></section>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="goal-modal">
+    <div class="modal" role="dialog" aria-labelledby="goal-title">
+      <h2 id="goal-title">Criar meta de hoje</h2>
+      <form id="goal-form">
+        <div class="field">
+          <label for="goal-description">Descrição</label>
+          <input id="goal-description" maxlength="255" required placeholder="Ex: Resolver 15 questões de Biologia hoje">
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-ghost" data-close-modal>Cancelar</button>
+          <button type="submit" class="btn btn-primary">Salvar meta</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="/assets/js/motion.js"></script>
+  <script type="module" src="/assets/js/components/toast.js"></script>
+  <script type="module" src="/assets/js/components/app-navbar.js"></script>
+  <script type="module" src="/assets/js/components/app-sidebar.js"></script>
+  <script type="module" src="/assets/js/pages/dashboard.js"></script>
+</body>
+</html>

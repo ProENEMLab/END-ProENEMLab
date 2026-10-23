@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banco de questões · ProENEM Lab</title>
+  <link rel="icon" id="favicon" href="/assets/images/icon-dark.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/motion.css">
+  <link rel="stylesheet" href="/assets/css/pages/app-shell.css">
+  <link rel="stylesheet" href="/assets/css/pages/questions.css">
+  <script src="/assets/js/auth-guard.js"></script>
+  <script>document.documentElement.setAttribute("data-theme","dark");</script>
+</head>
+<body>
+  <toast-container></toast-container>
+  <div class="app-shell">
+    <app-navbar></app-navbar>
+    <div class="app-body">
+      <app-sidebar></app-sidebar>
+      <main class="app-content">
+        <div class="app-content-inner">
+          <header class="page-header">
+            <p class="page-kicker">Banco</p>
+            <h1>Banco de questões</h1>
+            <p>Provas oficiais do ENEM, filtradas por ano, disciplina e tópico. O frontend consulta só a API do ProENEM Lab. Fonte: INEP, via enem-api (GPL-2.0).</p>
+          </header>
+
+          <form id="filters-form" class="card filters">
+            <div class="filters-fields">
+              <div id="filter-year"></div>
+              <div id="filter-subject"></div>
+              <div id="filter-topic-wrap">
+                <div id="filter-topic"></div>
+              </div>
+              <div id="filter-language-wrap" hidden>
+                <div id="filter-language"></div>
+              </div>
+              <label class="field">
+                <span>Dificuldade</span>
+                <select id="filter-difficulty" class="select">
+                  <option value="">Todas</option>
+                  <option value="easy">Fácil</option>
+                  <option value="medium">Médio</option>
+                  <option value="hard">Difícil</option>
+                </select>
+              </label>
+            </div>
+
+            <label class="filter-check">
+              <input type="checkbox" id="filter-exclude-answered">
+              <span>Ocultar questões que eu já respondi</span>
+            </label>
+
+            <div class="filters-toolbar">
+              <label class="saved-filters-label">
+                <span class="sr-only">Meus filtros salvos</span>
+                <select id="saved-filters" class="select" disabled>
+                  <option value="">Meus filtros salvos</option>
+                </select>
+              </label>
+              <button type="button" class="btn btn-ghost" id="save-filters">Salvar filtros</button>
+              <button type="button" class="btn btn-text" id="clear-filters">Limpar</button>
+              <div class="filters-apply">
+                <p class="result-count" id="result-count" aria-live="polite">—</p>
+                <button type="submit" class="btn btn-primary">Ver resultados</button>
+              </div>
+            </div>
+
+            <div id="filter-save-panel" class="filter-save-panel" hidden>
+              <label for="filter-set-name">Nome deste conjunto</label>
+              <input id="filter-set-name" class="input" type="text" maxlength="80" placeholder="Ex.: Matemática 2018–2023">
+              <button type="button" class="btn btn-primary btn-sm" id="confirm-save-filters">Confirmar</button>
+            </div>
+          </form>
+
+          <div id="questions-loading" class="card" style="margin-top:16px">
+            <div class="skeleton" style="height:180px"></div>
+          </div>
+          <div id="questions-empty" class="card empty-state" hidden>
+            <h3>Nenhuma questão encontrada</h3>
+            <p id="questions-empty-hint">Ajuste os filtros e tente novamente.</p>
+          </div>
+          <div id="question-list" class="question-list" style="margin-top:16px"></div>
+          <div id="pagination" class="pagination"></div>
+          <p class="source-note">Questões do ENEM (INEP) disponibilizadas via <a href="https://enem.dev" target="_blank" rel="noopener">enem-api</a> (GPL-2.0). O frontend consulta apenas a API do ProENEM Lab.</p>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script type="module" src="/assets/js/motion.js"></script>
+  <script type="module" src="/assets/js/components/toast.js"></script>
+  <script type="module" src="/assets/js/components/app-navbar.js"></script>
+  <script type="module" src="/assets/js/components/app-sidebar.js"></script>
+  <script type="module" src="/assets/js/pages/questions.js"></script>
+</body>
+</html>

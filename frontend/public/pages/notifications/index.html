@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notificações · ProENEM Lab</title>
+  <link rel="icon" id="favicon" href="/assets/images/icon-dark.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/motion.css">
+  <link rel="stylesheet" href="/assets/css/pages/app-shell.css">
+  <link rel="stylesheet" href="/assets/css/pages/study.css">
+  <script src="/assets/js/auth-guard.js"></script>
+  <script>document.documentElement.setAttribute("data-theme","dark");</script>
+</head>
+<body>
+  <toast-container></toast-container>
+  <div class="app-shell">
+    <app-navbar></app-navbar>
+    <div class="app-body">
+      <app-sidebar></app-sidebar>
+      <main class="app-content">
+        <div class="app-content-inner">
+          <header class="page-header">
+            <p class="page-kicker">Lembretes</p>
+            <h1>Notificações</h1>
+            <p>Tudo começa desligado. Ative e-mail ou o aviso deste navegador para a meta do dia, as revisões e a sequência. O aviso push não chega durante o Foco Total.</p>
+          </header>
+          <p id="notify-error" class="study-error" role="alert" hidden></p>
+
+          <section class="card notify-card">
+            <h2>Canais</h2>
+            <label class="check-row">
+              <input type="checkbox" id="email-enabled">
+              <span>E-mail</span>
+            </label>
+            <div class="notify-push">
+              <p id="push-state" class="muted">Verificando o navegador...</p>
+              <button type="button" class="btn" id="push-on">Ativar notificações push</button>
+              <button type="button" class="btn" id="push-off" hidden>Desativar push neste navegador</button>
+            </div>
+            <p class="source-note">No iPhone e no iPad o aviso só funciona com o site na Tela de Início. Use o menu Compartilhar e escolha Adicionar à Tela de Início. Push também exige HTTPS, ou localhost neste computador.</p>
+          </section>
+
+          <section class="card notify-card">
+            <h2>O que avisar</h2>
+            <div class="notify-table" id="type-matrix"></div>
+            <div class="settings-form">
+              <label>Silêncio a partir de
+                <select id="quiet-start"></select>
+              </label>
+              <label>até
+                <select id="quiet-end"></select>
+              </label>
+            </div>
+            <button type="button" class="btn btn-primary" id="save">Salvar preferências</button>
+          </section>
+
+          <section class="card notify-card">
+            <h2>Teste e histórico</h2>
+            <p id="last-log" class="muted">Nenhum lembrete enviado ainda.</p>
+            <div class="notify-actions">
+              <button type="button" class="btn" id="test-email">Enviar teste por e-mail</button>
+              <button type="button" class="btn" id="test-push">Enviar teste por push</button>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script type="module" src="/assets/js/components/toast.js"></script>
+  <script type="module" src="/assets/js/components/app-navbar.js"></script>
+  <script type="module" src="/assets/js/components/app-sidebar.js"></script>
+  <script type="module" src="/assets/js/pages/notifications.js"></script>
+</body>
+</html>

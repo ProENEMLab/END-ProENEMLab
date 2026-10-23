@@ -1,0 +1,318 @@
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes motion-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes motion-clip {
+  from {
+    opacity: 0.15;
+    clip-path: inset(14% 0 0 0);
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0);
+    transform: none;
+  }
+}
+
+@keyframes motion-slide {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes motion-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.975);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes motion-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .public-nav {
+    animation: motion-fade var(--duration-enter) var(--ease-out) both;
+  }
+
+  .landing-year {
+    animation: motion-fade var(--duration-slow) var(--ease-in-out) both;
+  }
+
+  .landing-hero > div {
+    animation: motion-rise var(--duration-enter) var(--ease-out) both;
+  }
+
+  .landing-hero-aside {
+    animation: motion-clip var(--duration-slow) var(--ease-out) 120ms both;
+  }
+
+  .auth-form-inner {
+    animation: motion-rise 700ms var(--ease-out) both;
+  }
+
+  auth-art,
+  .auth-art {
+    animation: motion-clip var(--duration-slow) var(--ease-out) 80ms both;
+  }
+
+  .topbar {
+    animation: motion-fade 480ms var(--ease-out) both;
+  }
+
+  .sidebar nav {
+    animation: motion-slide 560ms var(--ease-out) 40ms both;
+  }
+}
+
+html.js-reveal [data-reveal]:not(.is-in) {
+  opacity: 0;
+}
+
+html.js-reveal [data-reveal="rise"].is-in {
+  animation: motion-rise var(--duration-enter) var(--ease-out) var(--motion-delay, 0ms) both;
+}
+
+html.js-reveal [data-reveal="clip"].is-in {
+  animation: motion-clip var(--duration-slow) var(--ease-out) var(--motion-delay, 0ms) both;
+}
+
+html.js-reveal [data-reveal="slide"].is-in {
+  animation: motion-slide 540ms var(--ease-snap) var(--motion-delay, 0ms) both;
+}
+
+html.js-reveal [data-reveal="scale"].is-in {
+  animation: motion-scale 500ms var(--ease-out) var(--motion-delay, 0ms) both;
+}
+
+html.js-reveal [data-reveal="fade"].is-in {
+  animation: motion-fade 420ms var(--ease-in-out) var(--motion-delay, 0ms) both;
+}
+
+html.js-reveal [data-reveal].is-in.is-settled {
+  animation: none;
+  opacity: 1;
+}
+
+.btn {
+  transition:
+    background var(--duration-fast) ease,
+    box-shadow var(--duration-fast) ease,
+    border-color var(--duration-fast) ease,
+    color var(--duration-fast) ease,
+    transform var(--duration-fast) var(--ease-out);
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(47, 168, 232, 0.28);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.btn-ghost:hover:not(:disabled),
+.btn-navy:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.btn-ghost:active:not(:disabled),
+.btn-navy:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.public-nav-links a {
+  position: relative;
+  transition: color var(--duration-fast) ease;
+}
+
+.public-nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 1px;
+  background: var(--color-brand);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--duration-med) var(--ease-out);
+}
+
+.public-nav-links a:hover::after,
+.public-nav-links a[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+.public-footer-nav a,
+.public-footer-nav button {
+  transition: color var(--duration-fast) ease;
+}
+
+.nav-link {
+  transition:
+    background var(--duration-fast) ease,
+    color var(--duration-fast) ease,
+    box-shadow var(--duration-fast) ease,
+    padding-left var(--duration-fast) ease;
+}
+
+.feature-card,
+.landing-plan,
+.plan-card {
+  transition:
+    transform var(--duration-med) var(--ease-out),
+    box-shadow var(--duration-med) var(--ease-out),
+    border-color var(--duration-fast) ease;
+}
+
+.feature-card:hover,
+.landing-plan:hover,
+.plan-card:hover {
+  transform: translateY(-3px);
+}
+
+.feature-card.is-lead:hover,
+.landing-plan.is-now:hover,
+.plan-card.is-now:hover {
+  box-shadow: 10px 12px 0 rgba(47, 168, 232, 0.42);
+}
+
+.question-item {
+  transition: background var(--duration-fast) ease;
+}
+
+.question-item:hover .question-year,
+.topic-item:hover h3 {
+  color: var(--color-primary-hover);
+}
+
+.topic-index {
+  transition: background var(--duration-fast) ease, color var(--duration-fast) ease;
+}
+
+.topic-item:hover .topic-index {
+  background: var(--color-brand);
+  color: var(--color-on-primary);
+}
+
+.option-card {
+  transition:
+    border-color var(--duration-fast) ease,
+    box-shadow var(--duration-fast) var(--ease-out),
+    background var(--duration-fast) ease,
+    transform var(--duration-fast) var(--ease-out);
+}
+
+.option-card:hover {
+  transform: translateX(4px);
+}
+
+.option-card.is-selected,
+.option-card.is-correct,
+.option-card.is-wrong {
+  transform: none;
+}
+
+.card-feature {
+  transition: box-shadow var(--duration-med) var(--ease-out);
+}
+
+.accordion-item button .icon,
+.plan-extra .btn .icon {
+  transition: transform var(--duration-med) var(--ease-out);
+}
+
+.filter-combobox-list:not([hidden]) {
+  transform-origin: top;
+  animation: motion-scale 180ms var(--ease-out) both;
+}
+
+.progress-bar span {
+  transition: width 700ms var(--ease-out);
+}
+
+.form-alert:not([hidden]),
+.answer-banner:not([hidden]) {
+  animation: motion-slide 280ms var(--ease-out) both;
+}
+
+.modal-backdrop.is-open {
+  animation: motion-fade 220ms ease both;
+}
+
+.modal-backdrop.is-open .modal {
+  animation: motion-scale 320ms var(--ease-out) both;
+}
+
+.user-menu-dropdown {
+  transform-origin: top right;
+}
+
+.user-menu.open .user-menu-dropdown {
+  animation: motion-scale 180ms var(--ease-out) both;
+}
+
+@media (max-width: 860px) {
+  .sidebar.is-open {
+    animation: motion-slide 280ms var(--ease-out) both;
+  }
+}
+
+.countdown-number.is-counting {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html.js-reveal [data-reveal]:not(.is-in) {
+    opacity: 1;
+  }
+
+  .btn-primary:hover:not(:disabled),
+  .btn-ghost:hover:not(:disabled),
+  .btn-navy:hover:not(:disabled),
+  .feature-card:hover,
+  .landing-plan:hover,
+  .plan-card:hover,
+  .option-card:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,61 @@
+.stat-hero {
+  text-align: left;
+  padding: var(--space-6) 0 var(--space-7);
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  border-radius: 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.stat-hero .value {
+  font-family: var(--font);
+  font-size: clamp(3.6rem, 8vw, 6rem);
+  font-weight: 200;
+  letter-spacing: -0.06em;
+  color: var(--color-text-primary);
+  line-height: 0.9;
+  margin-top: 8px;
+}
+
+#subject-focus {
+  padding: var(--space-5) 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  border-radius: 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+#subject-focus .value {
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 200;
+  letter-spacing: -0.05em;
+}
+
+.chart-wrap {
+  position: relative;
+  height: 320px;
+}
+
+.worst-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.worst-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.worst-list li:last-child {
+  border-bottom: none;
+}
