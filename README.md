@@ -1,6 +1,13 @@
 # ProENEM Lab
 
 O ProENEM Lab é um projeto escolar de uma plataforma de estudos para o ENEM. A ideia é reunir questões de provas anteriores e ferramentas para organizar a rotina de estudo e acompanhar o desempenho.
+## Integrantes:
+- Analice Carvalho
+- Bernardo Magalhães
+- Caio Luciano
+- Davi Fontana
+- Isabela Brasil
+- Lucas Gabriel
 
 ## Funcionalidades
 
