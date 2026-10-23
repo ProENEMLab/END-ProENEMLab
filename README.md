@@ -134,6 +134,7 @@ frontend/public/
 
 - [Arquitetura e fluxo de dados](docs/arquitetura.md)
 - [Casos de uso simplificados](docs/casos-de-uso.md)
+- [Diagrama de classes do domínio](docs/diagrama-de-classes.md)
 - [Dicionário de dados resumido](docs/dicionario-dados.md)
 
 ## Situação atual
