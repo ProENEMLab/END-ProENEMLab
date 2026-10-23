@@ -1,13 +1,13 @@
 # Arquitetura e fluxo de dados
 
-O sistema tem três partes principais: as páginas que o aluno usa no navegador, o servidor que processa as ações e o banco que guarda os dados. Na execução local, o Flask entrega tanto as páginas quanto a API.
+O sistema tem três partes principais: as páginas que o aluno usa no navegador, o servidor que processa as ações e o banco que guarda os dados. Na execução local, o servidor do frontend entrega as páginas na porta 8000. A API Flask executa separadamente na porta 5000 e recebe as requisições do JavaScript.
 
 ## Diagrama de arquitetura
 
 ```mermaid
 flowchart TD
-    aluno[Aluno] --> interface[Interface: HTML, CSS e JavaScript]
-    interface <-->|HTTP| servidor[Servidor Flask]
+    aluno[Aluno] --> interface[Frontend porta 8000: HTML, CSS e JavaScript]
+    interface <-->|HTTP| servidor[API Flask porta 5000]
     servidor --> controllers[Controllers: recebem as requisições]
     controllers --> views[Views: validam entradas e formatam respostas]
     controllers --> services[Services: regras do sistema]

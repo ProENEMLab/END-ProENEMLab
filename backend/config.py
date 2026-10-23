@@ -121,6 +121,7 @@ class Config:
     VAPID_PRIVATE_KEY = os.getenv("VAPID_PRIVATE_KEY") or _secret("VAPID_PRIVATE_KEY", "")
     VAPID_SUBJECT = os.getenv("VAPID_SUBJECT", "mailto:nao-responda@proenem.lab")
     PUBLIC_BASE_URL = os.getenv("PUBLIC_BASE_URL", "http://127.0.0.1:5000")
+    FRONTEND_BASE_URL = os.getenv("FRONTEND_BASE_URL", "http://localhost:8000")
     INEP_EXAM_WINDOW = int(os.getenv("INEP_EXAM_WINDOW", "5"))
     ENEM_OBJECTIVE_QUESTIONS_PER_EDITION = int(
         os.getenv("ENEM_OBJECTIVE_QUESTIONS_PER_EDITION", "180")

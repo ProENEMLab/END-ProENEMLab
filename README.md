@@ -35,7 +35,9 @@ Os planos Pro e Elite aparecem como propostas futuras. Ainda não há cobrança 
 
 ## Como executar
 
-É necessário ter Python 3.11 ou mais recente. Execute os comandos a partir da pasta do projeto.
+É necessário ter Python 3.11 ou mais recente. O frontend e a API executam em servidores separados. Use dois terminais, começando na pasta do projeto.
+
+No primeiro terminal, prepare o ambiente e inicie a API:
 
 ### Windows (Prompt de Comando)
 
@@ -57,9 +59,33 @@ cd backend
 python run.py
 ```
 
-Abra http://127.0.0.1:5000 no navegador. O próprio Flask serve as páginas; não é necessário iniciar outro servidor para o frontend.
+### Frontend (segundo terminal)
 
-O banco é criado automaticamente em `backend/proenem.db`. Para encerrar o servidor, pressione `Ctrl+C` no terminal.
+Na pasta do projeto, execute:
+
+Windows:
+
+```bat
+py -3 -m http.server 8000 --bind 127.0.0.1 --directory frontend/public
+```
+
+Linux ou macOS:
+
+```bash
+python3 -m http.server 8000 --bind 127.0.0.1 --directory frontend/public
+```
+
+Abra http://localhost:8000 no navegador. Mantenha os dois terminais abertos:
+
+- O servidor da porta 8000 entrega as páginas, os estilos e os scripts.
+- A API Flask atende em `http://localhost:5000/api` e acessa o banco.
+- O JavaScript das páginas envia as requisições para a API. O CORS do backend já permite a origem `http://localhost:8000`.
+
+O banco é criado automaticamente em `backend/proenem.db`. Para encerrar, pressione `Ctrl+C` em cada terminal.
+
+Se alterar o endereço da API, ajuste `frontend/public/assets/js/config.js`. Se alterar o endereço do frontend, ajuste também a variável de ambiente `CORS_ORIGINS` do backend.
+
+Para configurar notificações externas, `FRONTEND_BASE_URL` indica o endereço das páginas e `PUBLIC_BASE_URL` indica o endereço da API usado no cancelamento dos lembretes.
 
 ### Dados de exemplo
 
@@ -107,6 +133,7 @@ frontend/public/
 ## Documentação
 
 - [Arquitetura e fluxo de dados](docs/arquitetura.md)
+- [Casos de uso simplificados](docs/casos-de-uso.md)
 - [Dicionário de dados resumido](docs/dicionario-dados.md)
 
 ## Situação atual

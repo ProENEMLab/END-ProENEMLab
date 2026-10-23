@@ -331,7 +331,7 @@ class NotificationService:
             count = self.reviews.count_due(user_id, today)
             overdue = self.reviews.count_overdue(user_id, today)
         unsubscribe_url = self._unsubscribe_url(user_id, kind, channel)
-        base = (current_app.config.get("PUBLIC_BASE_URL") or "").rstrip("/")
+        base = (current_app.config.get("FRONTEND_BASE_URL") or "http://localhost:8000").rstrip("/")
         title, body, text, html = render(kind, base, unsubscribe_url, count=count, overdue=overdue)
         if channel == "email":
             status, error = self._deliver_email(user, title, text, html, unsubscribe_url)
