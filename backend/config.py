@@ -15,8 +15,8 @@ def _secret(name: str, dev_default: str) -> str:
     return dev_default
 
 class Config:
-    SECRET_KEY = _secret("SECRET_KEY", "change-me")
-    JWT_SECRET_KEY = _secret("JWT_SECRET_KEY", "change-me-too")
+    SECRET_KEY = _secret("SECRET_KEY", "chave-secreta")
+    JWT_SECRET_KEY = _secret("JWT_SECRET_KEY", "chave-secreta-2")
     SQLALCHEMY_DATABASE_URI = os.getenv(
         "DATABASE_URL",
         "sqlite:///" + os.path.join(_BACKEND_ROOT, "proenem.db").replace("\\", "/"),
