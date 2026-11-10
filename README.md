@@ -9,6 +9,23 @@ O ProENEM Lab é um projeto escolar de uma plataforma de estudos para o ENEM. A 
 - Isabela Brasil
 - Lucas Gabriel
 
+## Casos de uso implementados
+
+| Código | Caso de uso                                | Ator                      |
+| ------ | ------------------------------------------ | ------------------------- |
+| UC01   | Criar uma conta                            | Aluno                     |
+| UC02   | Entrar na plataforma                       | Aluno                     |
+| UC03   | Buscar e responder questões                | Aluno                     |
+| UC04   | Revisar questões erradas                   | Aluno                     |
+| UC05   | Acompanhar a trilha e fazer anotações      | Aluno                     |
+| UC06   | Organizar o calendário de estudos          | Aluno                     |
+| UC07   | Estudar com o Pomodoro                     | Aluno                     |
+| UC08   | Criar e concluir metas                     | Aluno                     |
+| UC09   | Consultar o desempenho e exportar um relatório | Aluno                 |
+| UC10   | Configurar notificações                    | Aluno                     |
+| UC11   | Recuperar a senha (simulação)              | Aluno                     |
+| UC12   | Importar questões do ENEM                  | Responsável pela importação |
+
 ## Funcionalidades
 
 O resumo abaixo segue a ordem dos 20 requisitos e descreve o funcionamento atual, incluindo as partes que ainda dependem de dados ou configuração.
